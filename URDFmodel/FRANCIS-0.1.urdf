@@ -1,0 +1,289 @@
+<robot name="FRANCIS">
+	<link name="body">
+		<visual>
+			<origin xyz="0 0 1" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.5" length="0.05"/>
+			</geometry>
+	   </visual>
+	</link>
+	
+    <link name="leg1top_shoulder">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.07 0.1 0.07"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg1_top_articulation" type="revolute">
+    	<parent link="body"/>
+		<child link="leg1top_shoulder"/>
+		<origin xyz="0.5 0 1" rpy="0 0 0"/>
+		<axis xyz="0 1 0"/>
+	</joint>
+
+	<link name="leg1top_leg">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.08 0.08 0.5"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg1top_static" type="fixed">
+		<parent link="leg1top_shoulder"/>
+		<child link="leg1top_leg"/>
+		<origin xyz="0 0 -0.25" rpy="0 0 0"/>
+	</joint>
+
+    <link name="leg1_mid_shoulder">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.07 0.1 0.07"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg1_mid_articulation" type="revolute">
+    	<parent link="leg1top_leg"/>
+		<child link="leg1_mid_shoulder"/>
+		<origin xyz="0 0 -0.25" rpy="0 0 0"/>
+		<axis xyz="0 1 0"/>
+	</joint>
+
+	<link name="leg1_mid_leg">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.08 0.08 0.5"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg1_mid_static" type="fixed">
+		<parent link="leg1_mid_shoulder"/>
+		<child link="leg1_mid_leg"/>
+		<origin xyz="0 0 -0.25" rpy="0 0 0"/>
+	</joint>
+
+    <link name="leg1_bot_shoulder">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.07 0.1 0.07"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg1_bot_articulation" type="revolute">
+    	<parent link="leg1_mid_leg"/>
+		<child link="leg1_bot_shoulder"/>
+		<origin xyz="0 0 -0.25" rpy="0 0 0"/>
+		<axis xyz="0 1 0"/>
+	</joint>
+
+	<link name="leg1_bot_leg">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.08 0.08 1"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg1_bot_static" type="fixed">
+		<parent link="leg1_bot_shoulder"/>
+		<child link="leg1_bot_leg"/>
+		<origin xyz="0 0 -0.5" rpy="0 0 0"/>
+	</joint>
+
+	<link name="leg2top_shoulder">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.07 0.1 0.07"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg2_top_articulation" type="revolute">
+    	<parent link="body"/>
+		<child link="leg2top_shoulder"/>
+		<origin xyz="-0.333 -0.333 1" rpy="0 0 4.189"/>
+		<axis xyz="0 1 0"/>
+	</joint>
+
+	<link name="leg2top_leg">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.08 0.08 0.5"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg2top_static" type="fixed">
+		<parent link="leg2top_shoulder"/>
+		<child link="leg2top_leg"/>
+		<origin xyz="0 0 -0.25" rpy="0 0 0"/>
+	</joint>
+
+    <link name="leg2_mid_shoulder">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.07 0.1 0.07"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg2_mid_articulation" type="revolute">
+    	<parent link="leg2top_leg"/>
+		<child link="leg2_mid_shoulder"/>
+		<origin xyz="0 0 -0.25" rpy="0 0 0"/>
+		<axis xyz="0 1 0"/>
+	</joint>
+
+	<link name="leg2_mid_leg">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.08 0.08 0.5"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg2_mid_static" type="fixed">
+		<parent link="leg2_mid_shoulder"/>
+		<child link="leg2_mid_leg"/>
+		<origin xyz="0 0 -0.25" rpy="0 0 0"/>
+	</joint>
+	
+    <link name="leg2_bot_shoulder">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.07 0.1 0.07"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg2_bot_articulation" type="revolute">
+    	<parent link="leg2_mid_leg"/>
+		<child link="leg2_bot_shoulder"/>
+		<origin xyz="0 0 -0.25" rpy="0 0 0"/>
+		<axis xyz="0 1 0"/>
+	</joint>
+
+	<link name="leg2_bot_leg">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.08 0.08 1"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg2_bot_static" type="fixed">
+		<parent link="leg2_bot_shoulder"/>
+		<child link="leg2_bot_leg"/>
+		<origin xyz="0 0 -0.5" rpy="0 0 0"/>
+	</joint>
+
+	   <link name="leg3top_shoulder">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.07 0.1 0.07"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg3_top_articulation" type="revolute">
+    	<parent link="body"/>
+		<child link="leg3top_shoulder"/>
+		<origin xyz="-0.33 0.33 1" rpy="0 0 2.094"/>
+		<axis xyz="0 1 0"/>
+	</joint>
+
+	<link name="leg3top_leg">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.08 0.08 0.5"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg3top_static" type="fixed">
+		<parent link="leg3top_shoulder"/>
+		<child link="leg3top_leg"/>
+		<origin xyz="0 0 -0.25" rpy="0 0 0"/>
+	</joint>
+
+    <link name="leg3_mid_shoulder">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.07 0.1 0.07"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg3_mid_articulation" type="revolute">
+    	<parent link="leg3top_leg"/>
+		<child link="leg3_mid_shoulder"/>
+		<origin xyz="0 0 -0.25" rpy="0 0 0"/>
+		<axis xyz="0 1 0"/>
+	</joint>
+
+	<link name="leg3_mid_leg">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.08 0.08 0.5"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg3_mid_static" type="fixed">
+		<parent link="leg3_mid_shoulder"/>
+		<child link="leg3_mid_leg"/>
+		<origin xyz="0 0 -0.25" rpy="0 0 0"/>
+	</joint>
+	
+    <link name="leg3_bot_shoulder">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.07 0.1 0.07"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg3_bot_articulation" type="revolute">
+    	<parent link="leg3_mid_leg"/>
+		<child link="leg3_bot_shoulder"/>
+		<origin xyz="0 0 -0.25" rpy="0 0 0"/>
+		<axis xyz="0 1 0"/>
+	</joint>
+
+	<link name="leg3_bot_leg">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.08 0.08 1"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="leg3_bot_static" type="fixed">
+		<parent link="leg3_bot_shoulder"/>
+		<child link="leg3_bot_leg"/>
+		<origin xyz="0 0 -0.5" rpy="0 0 0"/>
+	</joint>
+</robot>
