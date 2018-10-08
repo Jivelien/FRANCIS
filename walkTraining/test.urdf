@@ -1,29 +1,39 @@
-<?xml version="0.0" ?>
-<robot name="plane">
-  <link name="planeLink">
-  <contact>
-      <lateral_friction value="1"/>
-  </contact>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-       <mass value=".0"/>
-       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-				<mesh filename="plane.obj" scale="1 1 1"/>
-      </geometry>
-       <material name="white">
-        <color rgba="1 1 1 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 -5"/>
-      <geometry>
-	 	<box size="30 30 10"/>
-      </geometry>
-    </collision>
-  </link>
+<robot name="FRANCIS">
+	<material name="blue">
+		<color rgba="0 0 0.8 1"/>
+	</material>
+	<link name="body">
+		<visual>
+			<origin xyz="0 0 1" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.375" length="0.05"/>
+			</geometry>
+	   </visual>
+	   <inertial>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<mass value=".0"/>
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+		</inertial>
+	</link>
+    <link name="leg1_top_shoulder1">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<sphere radius="0.07"/>
+			</geometry>
+			<material name="blue"/>
+		</visual>
+		<inertial>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<mass value=".0"/>
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+		</inertial>
+	</link>
+	<joint name="leg1_top_articulation1" type="revolute">
+    	<parent link="body"/>
+		<child link="leg1_top_shoulder1"/>
+		<origin xyz="0.375 0 1" rpy="0 0 0"/>
+		<axis xyz="0 0 1"/>
+		<limit effort="30" velocity="1.0" lower="-2" upper="2" />
+	</joint>
 </robot>
-

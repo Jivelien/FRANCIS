@@ -1,22 +1,28 @@
-import pybullet as p
+import pybullet
 import time
-import pybullet_data
 
-physicsClient = p.connect(p.GUI) #or p.DIRECT for non-graphical version
-p.setGravity(0,0,-9.780318)
-planeId = p.loadURDF("./plane.urdf")
+def reset(step):
+    pybullet.resetSimulation()
+    pybullet.setGravity(0,0,-9.780318)
+    pybullet.setRealTimeSimulation(1)
+    pybullet.setTimeStep(step)
 
-cubeStartPos = [0,0,1]
-cubeStartOrientation = p.getQuaternionFromEuler([0,0,0])
-boxId = p.loadURDF("duck_vhacd.urdf",cubeStartPos, cubeStartOrientation)
+def plane():
+    plane=pybullet.loadURDF("plane.urdf")
 
-for i in range (10000):
-    p.stepSimulation()
-    time.sleep(1./240.)
+def francis(fixed):
+    FRANCIS = pybullet.loadURDF("FRANCIS.urdf",useFixedBase=fixed)
+
+def startSim():
+    physicsClient = pybullet.connect(pybullet.GUI) #or p.DIRECT for non-graphical version
+    reset(0.0001)
+    francis(1)
+
+def stopSim():
+    pybullet.disconnect()
     
+startSim()
 
-cubePos, cubeOrn = p.getBasePositionAndOrientation(boxId)
-print(cubePos,cubeOrn)
-
-
-# p.disconnect()
+for i in range(100):
+    pybullet.setJointMotorControlArray(FRANCIS, range(1), pybullet.POSITION_CONTROL,targetPositions=[i*0.01] * 1)
+    time.sleep(0.01)
